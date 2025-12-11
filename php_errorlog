@@ -1,1 +1,16 @@
 [11-Dec-2025 08:57:52 UTC] wp_auto_login: trying to login user_id==1 loginusername=code@designtn.it to admin_url=http://biblioteca.wrkstat.com/wp-admin/
+[11-Dec-2025 12:54:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_field() in /home/customer/www/biblioteca.wrkstat.com/public_html/wp-content/themes/biblioteca/front-page.php:7
+Stack trace:
+#0 /home/customer/www/biblioteca.wrkstat.com/public_html/wp-includes/template-loader.php(125): include()
+#1 /home/customer/www/biblioteca.wrkstat.com/public_html/wp-blog-header.php(19): require_once('/home/customer/...')
+#2 /home/customer/www/biblioteca.wrkstat.com/public_html/index.php(17): require('/home/customer/...')
+#3 {main}
+  thrown in /home/customer/www/biblioteca.wrkstat.com/public_html/wp-content/themes/biblioteca/front-page.php on line 7
+[11-Dec-2025 12:54:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_field() in /home/customer/www/biblioteca.wrkstat.com/public_html/wp-content/themes/biblioteca/front-page.php:7
+Stack trace:
+#0 /home/customer/www/biblioteca.wrkstat.com/public_html/wp-includes/template-loader.php(125): include()
+#1 /home/customer/www/biblioteca.wrkstat.com/public_html/wp-blog-header.php(19): require_once('/home/customer/...')
+#2 /home/customer/www/biblioteca.wrkstat.com/public_html/index.php(17): require('/home/customer/...')
+#3 {main}
+  thrown in /home/customer/www/biblioteca.wrkstat.com/public_html/wp-content/themes/biblioteca/front-page.php on line 7
+[11-Dec-2025 14:18:39 UTC] Errore nell'evento Cron di riprogrammazione per l'hook: ewww_image_optimizer_relative_migration, codice di errore: invalid_schedule, messaggio di errore: L'evento programmato non esiste., dati: {"schedule":"ewwwio_relative_migration_interval","args":[],"interval":300}
