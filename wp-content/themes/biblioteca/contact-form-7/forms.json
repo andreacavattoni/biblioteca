@@ -1,0 +1,38 @@
+{
+  "contact-form-7": {
+    "version": "5.8.7",
+    "locale": "it_IT",
+    "forms": [
+      {
+        "title": "Contatti Biblioteca",
+        "slug": "contatti-biblioteca",
+        "locale": "it_IT",
+        "properties": {
+          "form": "<div class=\"wpcf7-form\">\n<div class=\"row\">\n  <div class=\"col-md-6\">\n    <label>Nome e cognome*</label>\n    [text* your-name placeholder \"Nome e cognome\"]\n  </div>\n  <div class=\"col-md-6\">\n    <label>Email*</label>\n    [email* your-email placeholder \"nome@email.it\"]\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-6\">\n    <label>Telefono</label>\n    [tel your-phone placeholder \"Telefono\"]\n  </div>\n  <div class=\"col-md-6\">\n    <label>Oggetto*</label>\n    [text* your-subject placeholder \"Oggetto\"]\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <label>Messaggio*</label>\n    [textarea* your-message placeholder \"Scrivi qui il tuo messaggio\"]\n  </div>\n</div>\n<div class=\"row align-items-center\">\n  <div class=\"col-md-8\">\n    <label class=\"privacy\">[acceptance* privacy-consent] Ho letto e accetto l'informativa sulla privacy.[/acceptance]</label>\n  </div>\n  <div class=\"col-md-4 text-md-end\">\n    [submit class:btn class:no-bk \"Invia\"]\n  </div>\n</div>\n</div>\n",
+          "mail": {
+            "subject": "[your-subject] - Richiesta dal sito [blogname]",
+            "sender": "[your-name] <[your-email]>",
+            "recipient": "[admin_email]",
+            "body": "Hai ricevuto un nuovo messaggio dal form Contatti Biblioteca.\n\nNome: [your-name]\nEmail: [your-email]\nTelefono: [your-phone]\nOggetto: [your-subject]\nMessaggio:\n[your-message]\n",
+            "use_html": false,
+            "attachments": "",
+            "additional_headers": "Reply-To: [your-email]"
+          },
+          "mail_2": {
+            "active": true,
+            "subject": "Abbiamo ricevuto la tua richiesta",
+            "sender": "[blogname] <[admin_email]>",
+            "recipient": "[your-email]",
+            "body": "Ciao [your-name],\nabbiamo ricevuto il tuo messaggio e ti risponderemo al più presto.\n\nRiepilogo:\nOggetto: [your-subject]\nMessaggio:\n[your-message]\n\nBiblioteca Giudicarie Esteriori",
+            "use_html": false,
+            "attachments": "",
+            "additional_headers": ""
+          },
+          "messages": [],
+          "additional_settings": "\n\n",
+          "locale": "it_IT"
+        }
+      }
+    ]
+  }
+}
