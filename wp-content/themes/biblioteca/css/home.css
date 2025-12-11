@@ -1,0 +1,121 @@
+:root {
+    --accent: #1b4965;
+    --accent-soft: #edf2f4;
+    --text-main: #212529;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    color: var(--text-main);
+    background-color: #fff;
+}
+
+.home-template .hero-section {
+    position: relative;
+    padding: 6rem 0 5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.home-template .hero-section .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(21, 38, 54, 0.75), rgba(27, 73, 101, 0.55));
+}
+
+.home-template .hero-section .eyebrow {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #d1e5f0;
+}
+
+.home-template .hero-section h1 {
+    position: relative;
+    z-index: 1;
+}
+
+.home-template .hero-media {
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    color: var(--text-main);
+}
+
+.section-eyebrow {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6c757d;
+    font-weight: 700;
+}
+
+.section-text p:last-child {
+    margin-bottom: 0;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+}
+
+.books-section {
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.book-card {
+    border: 1px solid #edf2f7;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.06);
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.projects-section {
+    position: relative;
+}
+
+.projects-slider {
+    overflow: hidden;
+}
+
+.projects-track {
+    gap: 1.5rem;
+    transition: transform 0.35s ease;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-behavior: smooth;
+}
+
+.project-card {
+    width: min(360px, 90vw);
+}
+
+.project-card .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (min-width: 992px) {
+    .home-template .hero-section {
+        padding: 7rem 0 6rem;
+    }
+
+    .project-card {
+        width: 420px;
+    }
+}
