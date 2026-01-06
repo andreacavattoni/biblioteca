@@ -6,7 +6,7 @@ Template Name: Pagina Progetti
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<div id="primary" class="site-main">
   <section class="page-header sect">
     <div class="container-fluid">
       <div class="row align-items-center">
@@ -75,6 +75,6 @@ get_header();
       </div>
     </div>
   </section>
-</main>
+</div>
 
 <?php get_footer(); ?>

@@ -19,7 +19,7 @@ $books = new WP_Query(array(
   )
 ));
 ?>
-<main id="primary" class="site-main">
+<div id="primary" class="site-main">
   <header class="header page-header sect">
     <div class="container">
       <div class="page-title big-title line"><h1><?php single_term_title(); ?></h1></div>
@@ -79,6 +79,6 @@ $books = new WP_Query(array(
       <?php endif; ?>
     </div>
   </section>
-</main>
+</div>
 <?php
 get_footer();

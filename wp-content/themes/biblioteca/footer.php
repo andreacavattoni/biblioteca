@@ -13,21 +13,23 @@ $footer_social  = function_exists( 'get_field' ) ? get_field( 'footer_social', '
 			<div id="mc_embed_signup">
         <form action="https://bibliogiudicarieesteriori.us21.list-manage.com/subscribe/post?u=8f066017f751cc891b924901c&amp;id=17f680685f&amp;v_id=136&amp;f_id=00f028e7f0" method="post" target="_blank">
   <div>
+    <label class="screen-reader-text" for="mce-EMAIL"><?php esc_html_e( 'Email', 'biblioteca' ); ?></label>
     <input type="email" name="EMAIL" class="n-input required email" id="mce-EMAIL" placeholder="Email *" required />
   </div>
   <div>
+    <label class="screen-reader-text" for="mce-FNAME"><?php esc_html_e( 'Nome', 'biblioteca' ); ?></label>
     <input type="text" name="FNAME" class="n-input text" id="mce-FNAME" placeholder="Nome" />
   </div>
   <!-- Preferenze di contatto -->
-  <div class="n-f-desc">
-    <label>Preferenze di comunicazione</label>
+  <fieldset class="n-f-desc">
+    <legend><?php esc_html_e( 'Preferenze di comunicazione', 'biblioteca' ); ?></legend>
     <p>Come vuoi ricevere le notizie dalla Biblioteca Giudicarie Esteriori?</p>
-    <label class="checkbox">
-      <input type="checkbox" id="gdpr_email" name="gdpr[email]" value="Y" checked/>
+    <label class="checkbox" for="gdpr_email">
+      <input type="checkbox" id="gdpr_email" name="gdpr[email]" value="Y" checked />
       <span>Email</span>
     </label>
     <p>Potrai cancellare la tua iscrizione in qualsiasi momento usando il link in fondo alle nostre email. Per maggiori informazioni sul trattamento dei dati visita il nostro sito.</p>
-  </div>
+  </fieldset>
   <!-- Privacy e servizi -->
   <div class="n-f-desc">
     <p>Questo modulo usa Mailchimp come piattaforma di invio. Cliccando su “Iscriviti” acconsenti al trasferimento dei tuoi dati a Mailchimp per la gestione della newsletter.</p>
@@ -51,7 +53,7 @@ $footer_social  = function_exists( 'get_field' ) ? get_field( 'footer_social', '
     <div class="row">
       <div class="col-md-4 red-col">
         <div class="footer-left-col">
-          <a href="/" class="logo-footer"><img src="<?php print get_template_directory_uri(); ?>/images/logo-footer.svg"></a>
+          <a href="/" class="logo-footer"><img src="<?php print get_template_directory_uri(); ?>/images/logo-footer.svg" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"></a>
           <div class="footer-label">Contatti</div>
           <div class="footer-item">
             <?php print get_field('orari',32); ?>

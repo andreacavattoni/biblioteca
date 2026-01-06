@@ -4,7 +4,6 @@ Template Name: Pagina Contatti
 */
 get_header();
 ?>
-<?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php
 
@@ -58,7 +57,7 @@ $progetti_rep = isset( $progetti['progetti'] ) ? $progetti['progetti'] : array()
         </div>
         <div class="col-md-6">
           <div class="page-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.755576329527!2d10.871938455541994!3d46.036025403958604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47826b03de51509f%3A0x1f52aa3e99c598fd!2sServizio%20Biblioteca%20e%20promozione%20della%20cultura!5e0!3m2!1sit!2sit!4v1687272865076!5m2!1sit!2sit" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.755576329527!2d10.871938455541994!3d46.036025403958604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47826b03de51509f%3A0x1f52aa3e99c598fd!2sServizio%20Biblioteca%20e%20promozione%20della%20cultura!5e0!3m2!1sit!2sit!4v1687272865076!5m2!1sit!2sit" title="<?php esc_attr_e( 'Mappa Biblioteca Giudicarie Esteriori', 'biblioteca' ); ?>" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>

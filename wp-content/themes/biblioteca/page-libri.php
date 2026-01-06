@@ -123,7 +123,7 @@ function biblioteca_render_categoria_section( $label, $slug ) {
 
 ?>
 
-<main id="primary" class="site-main">
+<div id="primary" class="site-main">
   <header class="header page-header sect">
     <div class="container">
       <div class="page-title big-title line"><h1><?php the_title(); ?></h1></div>
@@ -164,6 +164,6 @@ function biblioteca_render_categoria_section( $label, $slug ) {
       }
   }
   ?>
-</main>
+</div>
 
 <?php get_footer(); ?>

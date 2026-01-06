@@ -13,7 +13,7 @@ $posts = new WP_Query(array(
   'cat' => $term->term_id
 ));
 ?>
-<main id="primary" class="site-main">
+<div id="primary" class="site-main">
   <header class="header page-header sect">
     <div class="container">
       <div class="page-title big-title line"><h1><?php single_cat_title(); ?></h1></div>
@@ -40,7 +40,7 @@ $posts = new WP_Query(array(
         ?>
         <div class="col-md-3">
           <a class="news-card" href="<?php the_permalink(); ?>">
-            <?php if ( $thumb ) : ?><img src="<?php echo esc_url($thumb['sizes']['libro-preview'] ); ?>" alt="<?php $thumb['sizes']['title']; ?>"><?php endif; ?>
+            <?php if ( $thumb ) : ?><img src="<?php echo esc_url( $thumb['sizes']['libro-preview'] ); ?>" alt="<?php echo esc_attr( $thumb['title'] ?: get_the_title() ); ?>"><?php endif; ?>
             <div class="news-body">
               <div class="news-date">
                 <?php
@@ -82,6 +82,6 @@ $posts = new WP_Query(array(
       <?php endif; ?>
     </div>
   </section>
-</main>
+</div>
 <?php
 get_footer();
