@@ -1,0 +1,122 @@
+{
+    "key": "group_672ff6aa12345",
+    "title": "Libro",
+    "fields": [
+        {
+            "key": "field_672ff6f312349",
+            "label": "Cover",
+            "name": "libro_cover",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Immagine di copertina del libro.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_672ff6d012347",
+            "label": "Sottotitolo",
+            "name": "libro_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Sottotitolo o payoff del libro.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_672ff70d1234a",
+            "label": "Opuscolo",
+            "name": "libro_opuscolo",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Allegato PDF o opuscolo scaricabile.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf",
+            "allow_in_bindings": 1
+        },
+        {
+            "key": "field_672ff72a1234b",
+            "label": "Tipo",
+            "name": "libro_tipo",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Classificazione del libro (es. lettima, divulgazione, bibliografie).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "lettima": "Lettima",
+                "divulgazione": "Divulgazione",
+                "bibliografie": "Bibliografie"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "placeholder": "Seleziona il tipo",
+            "ajax": 0,
+            "allow_custom": 0,
+            "search_placeholder": "",
+            "ui": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "libro"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campi ACF per i singoli libri.",
+    "show_in_rest": 0,
+    "modified": 1767015703
+}

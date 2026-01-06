@@ -209,6 +209,37 @@
                     "rows": 3,
                     "placeholder": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_695282c798e1c",
+                    "label": "Libri",
+                    "name": "libri",
+                    "aria-label": "",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "libro"
+                    ],
+                    "post_status": "",
+                    "taxonomy": "",
+                    "filters": [
+                        "search",
+                        "post_type"
+                    ],
+                    "return_format": "object",
+                    "min": "",
+                    "max": "",
+                    "allow_in_bindings": 0,
+                    "elements": "",
+                    "bidirectional": 0,
+                    "bidirectional_target": []
                 }
             ]
         },
@@ -339,28 +370,31 @@
                             "placeholder": "",
                             "new_lines": "br",
                             "parent_repeater": "field_672bc94781b4a"
-                        },
-                        {
-                            "key": "field_672bc9bb81b4e",
-                            "label": "Link",
-                            "name": "link",
-                            "aria-label": "",
-                            "type": "url",
-                            "instructions": "Indirizzo web del progetto.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "parent_repeater": "field_672bc94781b4a"
                         }
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_6952977cbee35",
+            "label": "Titolo newsletter",
+            "name": "titolo_newsletter",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -381,5 +415,5 @@
     "active": true,
     "description": "Campi personalizzati per la home page.",
     "show_in_rest": 0,
-    "modified": 1765462972
+    "modified": 1767020424
 }

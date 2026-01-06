@@ -1,0 +1,153 @@
+{
+    "key": "group_6732c000abcde",
+    "title": "Impostazioni Footer",
+    "fields": [
+        {
+            "key": "field_6732c0c5abcdf",
+            "label": "Social",
+            "name": "footer_social",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Link ai profili social o a risorse utili.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Aggiungi link",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6732c0dfabcdf",
+                    "label": "Etichetta",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Nome del social o del link.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Instagram",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6732c0c5abcdf"
+                },
+                {
+                    "key": "field_6732c0fdabcdf",
+                    "label": "URL",
+                    "name": "url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Link completo comprensivo di https:\/\/",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https:\/\/",
+                    "parent_repeater": "field_6732c0c5abcdf"
+                }
+            ]
+        },
+        {
+            "key": "field_695289c793620",
+            "label": "Link fixed",
+            "name": "link_fixed",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Aggiungi link",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_695289da93621",
+                    "label": "Titolo",
+                    "name": "titolo",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_695289c793620"
+                },
+                {
+                    "key": "field_695289e093622",
+                    "label": "Url",
+                    "name": "url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_695289c793620"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "impostazioni-footer"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campi per personalizzare il footer e il form di contatto.",
+    "show_in_rest": 0,
+    "modified": 1767016947
+}

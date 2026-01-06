@@ -1,0 +1,2 @@
+[30-Dec-2025 11:53:14 UTC] PHP Warning:  Attempt to read property "taxonomy" on null in /home/customer/www/biblioteca.wrkstat.com/public_html/wp-content/plugins/seo-by-rank-math/includes/admin/class-post-columns.php on line 174
+[30-Dec-2025 11:53:21 UTC] PHP Warning:  Attempt to read property "taxonomy" on null in /home/customer/www/biblioteca.wrkstat.com/public_html/wp-content/plugins/seo-by-rank-math/includes/admin/class-post-columns.php on line 174

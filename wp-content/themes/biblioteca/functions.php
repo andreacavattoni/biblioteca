@@ -169,23 +169,26 @@ return $count;
 
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
-	add_image_size('progetto_preview', 770, 540, true);
-	add_image_size('instagram', 550, 550,true);
-	add_image_size('progetto_slide', 5000, 430);
-  add_image_size('page', 820, 760);
-
+	add_image_size('cover', 1920, 1080, true);
+	add_image_size('progetto', 700, 380,true);
+	add_image_size('libro-preview', 340, 500, true);
+	add_image_size('libro-full', 650, 2000);
 
 	add_filter('jpeg_quality', function($arg){return 95;});
 }
 
 function biblioteca_scripts(){
-        wp_enqueue_style( 'grid', get_template_directory_uri() . '/css/grid.css', array(), '1.0.0' );
-        wp_enqueue_style( 'mobile', get_template_directory_uri() . '/css/mobile.css', array('grid'));
-        wp_enqueue_script('all', get_template_directory_uri() . '/js/all.js', array('jquery'), true);
+	wp_enqueue_style( 'flickity', get_template_directory_uri() . '/css/flickity.css', array('grid'));
+	wp_enqueue_script('flickity', get_template_directory_uri() . '/js/flickity.min.js', array('jquery'), true);
 
-        if ( is_front_page() ) {
-                wp_enqueue_style( 'home', get_template_directory_uri() . '/css/home.css', array( 'grid' ), '1.0.0' );
-        }
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css', array('grid'));
+  wp_enqueue_style( 'grid', get_template_directory_uri() . '/css/grid.css', array(), '1.0.0' );
+  wp_enqueue_style( 'mobile', get_template_directory_uri() . '/css/mobile.css', array('grid'));
+  wp_enqueue_script('all', get_template_directory_uri() . '/js/all.js', array('jquery'), true);
+
+  if ( is_front_page() ) {
+    wp_enqueue_style( 'home', get_template_directory_uri() . '/css/home.css', array( 'grid' ), '1.0.0' );
+  }
 }
 add_action("wp_enqueue_scripts", "biblioteca_scripts");
 
@@ -203,4 +206,3 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 
 add_filter( 'auto_theme_update_send_email', '__return_false' );
 add_filter( 'auto_plugin_update_send_email', '__return_false' );
-

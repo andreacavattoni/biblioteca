@@ -1,15 +1,113 @@
+<?php
+/*
+Template Name: Pagina Biblioteca
+*/
+get_header();
+?>
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php
+
+$libri        = get_field( 'libri_section',2);
+$progetti     = get_field( 'progetti_section',2);
+$libri_title  = isset( $libri['title'] ) ? $libri['title'] : '';
+$libri_text   = isset( $libri['text'] ) ? $libri['text'] : '';
+$progetti_tit = isset( $progetti['title'] ) ? $progetti['title'] : '';
+$progetti_rep = isset( $progetti['progetti'] ) ? $progetti['progetti'] : array();
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<header class="header">
-<h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1> <?php edit_post_link(); ?>
-</header>
-<div class="entry-content" itemprop="mainContentOfPage">
-<?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'full', array( 'itemprop' => 'image' ) ); } ?>
-<?php the_content(); ?>
-<div class="entry-links"><?php wp_link_pages(); ?></div>
-</div>
+  <header class="header page-header sect">
+    <div class="container">
+      <div class="page-title big-title line"><h1><?php the_title(); ?></h1></div>
+      <div class="mini-text"><?php the_content(); ?></div>
+    </div>
+  </header>
+  <div class="sect home-libri gray-sect">
+    <div class="container">
+      <?php if ( $libri_title ) : ?>
+      <div class="big-title line"><?php echo esc_html( $libri_title ); ?></div>
+      <?php endif; ?>
+      <?php if ( $libri_text ) : ?>
+      <div class="mini-text column-text"><?php echo esc_html( $libri_text ); ?></div>
+      <?php endif; ?>
+    </div>
+    <div class="container-fluid">
+      <div class="home-books row">
+        <?php foreach ($libri['libri'] as $libro):?>
+          <a class="book-card col-md-3" href="<?php print get_permalink($libro->ID); ?>">
+            <?php $cover = get_field('libro_cover', $libro->ID); ?>
+            <?php if ( $cover ) : ?><img src="<?php echo esc_url( $cover['sizes']['libro-preview'] ); ?>" alt="<?php the_title_attribute(); ?>"><?php endif; ?>
+            <div class="book-bottom">
+              <div class="book-title"><?php print $libro->post_title; ?></div>
+              <div class="book-arrow"><span></span></div>
+            </div>
+          </a>
+        <?php endforeach;?>
+      </div>
+      <?php /*<div class="row books-grid">
+        <?php
+        $book_query = null;
+        if ( post_type_exists( 'libro' ) ) {
+          $book_query = new WP_Query(
+            array(
+              'post_type'      => 'libro',
+              'posts_per_page' => 6,
+            )
+          );
+        }
+        if ( $book_query && $book_query->have_posts() ) :
+          while ( $book_query->have_posts() ) :
+            $book_query->the_post();
+            $cover = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+        ?>
+        <div class="col-12 col-md-6 col-xl-4">
+          <a class="book-card" href="<?php the_permalink(); ?>">
+            <?php if ( $cover ) : ?><img src="<?php echo esc_url( $cover ); ?>" alt="<?php the_title_attribute(); ?>"><?php endif; ?>
+            <div class="book-body">
+              <div class="book-title"><?php the_title(); ?></div>
+              <div class="book-text"><?php echo wp_trim_words( get_the_excerpt(), 18, '…' ); ?></div>
+            </div>
+          </a>
+        </div>
+        <?php
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
+      </div>*/ ?>
+    </div>
+  </div>
+  <div class="sect home-progetti">
+    <div class="container">
+      <?php if ( $progetti_tit ) : ?>
+      <div class="big-title line"><?php echo esc_html( $progetti_tit ); ?></div>
+      <?php endif; ?>
+      <div class="progetti-grid">
+        <?php foreach ( $progetti_rep as $progetto ) :
+          $p_image = isset( $progetto['image'] ) ? $progetto['image'] : null;
+          $p_title = isset( $progetto['title'] ) ? $progetto['title'] : '';
+          $p_text  = isset( $progetto['text'] ) ? $progetto['text'] : '';
+          $p_link  = isset( $progetto['link'] ) ? $progetto['link'] : '';
+        ?>
+        <div class="proj-single">
+          <div class="proj-card row">
+            <div class="col-md-6">
+              <div class="proj-pic">
+                <?php if ( $p_image ) : ?><img src="<?php echo esc_url( $p_image['sizes']['progetto'] ); ?>" alt="<?php echo esc_attr( $p_title ); ?>"><?php endif; ?>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="proj-body">
+                <div class="proj-title big-title"><?php echo esc_html( $p_title ); ?></div>
+                <div class="proj-text mini-text"><?php echo wp_kses_post( $p_text ); ?></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
 </article>
-<?php if ( comments_open() && !post_password_required() ) { comments_template( '', true ); } ?>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

@@ -1,32 +1,74 @@
 <?php
-$footer_title   = function_exists( 'get_field' ) ? get_field( 'footer_title', 'option' ) : '';
-$footer_text    = function_exists( 'get_field' ) ? get_field( 'footer_text', 'option' ) : '';
-$footer_address = function_exists( 'get_field' ) ? get_field( 'footer_address', 'option' ) : '';
-$footer_phone   = function_exists( 'get_field' ) ? get_field( 'footer_phone', 'option' ) : '';
-$footer_email   = function_exists( 'get_field' ) ? get_field( 'footer_email', 'option' ) : '';
-$footer_hours   = function_exists( 'get_field' ) ? get_field( 'footer_hours', 'option' ) : '';
 $footer_social  = function_exists( 'get_field' ) ? get_field( 'footer_social', 'option' ) : array();
-$footer_form    = function_exists( 'get_field' ) ? get_field( 'footer_form_shortcode', 'option' ) : '';
 ?>
 </main>
 </div>
-<footer class="site-footer">
+<div class="newsletter-sect sect gray-sect">
+  <div class="newsletter-title">
+    <span></span>
+    <?php print get_field('titolo_newsletter',2); ?>
+  </div>
+  <div id="Mailchimp_modulo_container">
+		<div id="mc_embed_shell">
+			<div id="mc_embed_signup">
+        <form action="https://bibliogiudicarieesteriori.us21.list-manage.com/subscribe/post?u=8f066017f751cc891b924901c&amp;id=17f680685f&amp;v_id=136&amp;f_id=00f028e7f0" method="post" target="_blank">
+  <div>
+    <input type="email" name="EMAIL" class="n-input required email" id="mce-EMAIL" placeholder="Email *" required />
+  </div>
+  <div>
+    <input type="text" name="FNAME" class="n-input text" id="mce-FNAME" placeholder="Nome" />
+  </div>
+  <!-- Preferenze di contatto -->
+  <div class="n-f-desc">
+    <label>Preferenze di comunicazione</label>
+    <p>Come vuoi ricevere le notizie dalla Biblioteca Giudicarie Esteriori?</p>
+    <label class="checkbox">
+      <input type="checkbox" id="gdpr_email" name="gdpr[email]" value="Y" checked/>
+      <span>Email</span>
+    </label>
+    <p>Potrai cancellare la tua iscrizione in qualsiasi momento usando il link in fondo alle nostre email. Per maggiori informazioni sul trattamento dei dati visita il nostro sito.</p>
+  </div>
+  <!-- Privacy e servizi -->
+  <div class="n-f-desc">
+    <p>Questo modulo usa Mailchimp come piattaforma di invio. Cliccando su “Iscriviti” acconsenti al trasferimento dei tuoi dati a Mailchimp per la gestione della newsletter.</p>
+    <p>Per saperne di più, puoi consultare la <a href="https://mailchimp.com/legal/terms" target="_blank" rel="nofollow">privacy policy di Mailchimp</a>.</p>
+  </div>
+  <div class="n-submit">
+    <input type="submit" name="subscribe" class="button btn" value="Iscriviti" />
+  </div>
+</form>
+			</div>
+			<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]=EMAIL;ftypes[0]=merge;,fnames[1]=FNAME;ftypes[1]=merge;,fnames[2]=LNAME;ftypes[2]=merge;,fnames[3]=ADDRESS;ftypes[3]=merge;,fnames[4]=PHONE;ftypes[4]=merge;,fnames[5]=BIRTHDAY;ftypes[5]=merge;false}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+		</div>
+</div>
+<div class="fixed-buttons">
+  <?php foreach(get_field('link_fixed','option') as $link): ?>
+    <a href="<?php print $link['url'];?>" rel="nofollow"><?php print $link['titolo']; ?></a>
+  <?php endforeach; ?>
+</div>
+<footer class="footer">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
-        <div class="footer-brand">
-          <div class="mini-text mini light"><?php bloginfo( 'name' ); ?></div>
-          <?php if ( $footer_title ) : ?><h2 class="big-title big"><?php echo esc_html( $footer_title ); ?></h2><?php endif; ?>
-          <?php if ( $footer_text ) : ?><div class="mini-text mini light"><?php echo wp_kses_post( wpautop( $footer_text ) ); ?></div><?php endif; ?>
+      <div class="col-md-4 red-col">
+        <div class="footer-left-col">
+          <a href="/" class="logo-footer"><img src="<?php print get_template_directory_uri(); ?>/images/logo-footer.svg"></a>
+          <div class="footer-label">Contatti</div>
+          <div class="footer-item">
+            <?php print get_field('orari',32); ?>
+          </div>
+          <div class="footer-item telefono-item footer-flex">
+            <span></span><?php print get_field('telefono',32); ?>
+          </div>
+          <div class="footer-item email-item footer-flex">
+            <span></span><?php print get_field('email',32); ?>
+          </div>
+          <div class="footer-item loc-item footer-flex">
+            <span></span><?php print get_field('location',32); ?>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
+        <div class="footer-brand">
+        </div>
         <div class="footer-contacts">
-          <?php if ( $footer_address ) : ?><div class="footer-line"><?php echo esc_html( $footer_address ); ?></div><?php endif; ?>
-          <?php if ( $footer_phone ) : ?><div class="footer-line"><a href="tel:<?php echo esc_attr( $footer_phone ); ?>"><?php echo esc_html( $footer_phone ); ?></a></div><?php endif; ?>
-          <?php if ( $footer_email ) : ?><div class="footer-line"><a href="mailto:<?php echo esc_attr( $footer_email ); ?>"><?php echo esc_html( $footer_email ); ?></a></div><?php endif; ?>
-          <?php if ( $footer_hours ) : ?><div class="footer-line footer-hours"><?php echo wp_kses_post( wpautop( $footer_hours ) ); ?></div><?php endif; ?>
-          <?php if ( ! empty( $footer_social ) ) : ?>
           <div class="footer-social">
             <?php foreach ( $footer_social as $social ) :
               $label = isset( $social['label'] ) ? $social['label'] : '';
@@ -36,17 +78,12 @@ $footer_form    = function_exists( 'get_field' ) ? get_field( 'footer_form_short
             <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $label ?: $url ); ?></a>
             <?php endforeach; ?>
           </div>
-          <?php endif; ?>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-8">
         <div class="footer-form">
           <?php
-          if ( $footer_form ) {
-            echo do_shortcode( $footer_form );
-          } else {
-            echo '<p class="mini-text mini light">' . esc_html__( 'Configura il form di contatto in Contact Form 7 e incolla lo shortcode nelle impostazioni footer.', 'biblioteca' ) . '</p>';
-          }
+            echo do_shortcode('[contact-form-7 id="655b523" title="Contatti Biblioteca"]');
           ?>
         </div>
       </div>
@@ -55,8 +92,8 @@ $footer_form    = function_exists( 'get_field' ) ? get_field( 'footer_form_short
   <div class="footer-bottom">
     <div class="container-fluid">
       <div class="row justify-content-between align-items-center">
-        <div class="col-md-6 mini-text mini light">&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?></div>
-        <div class="col-md-6 text-md-end mini-text mini light"><?php bloginfo( 'description' ); ?></div>
+        <div class="col-md-6 mini-text mini light"><a href="/privacy-policy">Privacy Policy</a></div>
+        <div class="col-md-6 text-md-end mini-text mini light"><a href="https://www.ledolab.it">Creato da LeDo</a></div>
       </div>
     </div>
   </div>

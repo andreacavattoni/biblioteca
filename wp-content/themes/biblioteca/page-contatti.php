@@ -2,66 +2,68 @@
 /*
 Template Name: Pagina Contatti
 */
-
 get_header();
 ?>
+<?php get_header(); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php
 
-<main id="primary" class="site-main">
-  <section class="page-header sect">
-    <div class="container-fluid">
-      <div class="row align-items-center">
-        <div class="col-md-8">
-          <h1 class="big-title big"><?php the_title(); ?></h1>
-          <?php if ( has_excerpt() ) : ?><div class="mini-text mini light"><?php echo wp_kses_post( get_the_excerpt() ); ?></div><?php endif; ?>
-        </div>
-        <?php if ( has_post_thumbnail() ) : ?>
-        <div class="col-md-4 text-md-end"><?php the_post_thumbnail( 'large' ); ?></div>
-        <?php endif; ?>
-      </div>
+$libri        = get_field( 'libri_section',2);
+$progetti     = get_field( 'progetti_section',2);
+$libri_title  = isset( $libri['title'] ) ? $libri['title'] : '';
+$libri_text   = isset( $libri['text'] ) ? $libri['text'] : '';
+$progetti_tit = isset( $progetti['title'] ) ? $progetti['title'] : '';
+$progetti_rep = isset( $progetti['progetti'] ) ? $progetti['progetti'] : array();
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <header class="header page-header sect">
+    <div class="container">
+      <div class="page-title big-title line"><h1><?php print get_field('titolo_visualizzato'); ?></h1></div>
     </div>
-  </section>
-
-  <section class="sect page-intro">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
-        <div class="col-lg-10">
-          <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sect contatti">
-    <div class="container-fluid">
-      <div class="row">
-        <?php
-        $contact_email   = function_exists( 'get_field' ) ? get_field( 'contact_email' ) : '';
-        $contact_phone   = function_exists( 'get_field' ) ? get_field( 'contact_phone' ) : '';
-        $contact_address = function_exists( 'get_field' ) ? get_field( 'contact_address' ) : '';
-        ?>
         <div class="col-md-6">
-          <div class="contact-card">
-            <div class="mini-text mini light"><?php esc_html_e( 'Contatti', 'biblioteca' ); ?></div>
-            <div class="contact-lines">
-              <?php if ( $contact_address ) : ?><div class="contact-line"><?php echo esc_html( $contact_address ); ?></div><?php endif; ?>
-              <?php if ( $contact_phone ) : ?><div class="contact-line"><a href="tel:<?php echo esc_attr( $contact_phone ); ?>"><?php echo esc_html( $contact_phone ); ?></a></div><?php endif; ?>
-              <?php if ( $contact_email ) : ?><div class="contact-line"><a href="mailto:<?php echo esc_attr( $contact_email ); ?>"><?php echo esc_html( $contact_email ); ?></a></div><?php endif; ?>
+          <div class="contatti-sect">
+            <div class="footer-item">
+              <?php print get_field('orari'); ?>
+            </div>
+            <div class="footer-item telefono-item footer-flex">
+              <span></span><?php print get_field('telefono'); ?>
+            </div>
+            <div class="footer-item email-item footer-flex">
+              <span></span><?php print get_field('email'); ?>
+            </div>
+            <div class="footer-item loc-item footer-flex">
+              <span></span><?php print get_field('location'); ?>
+            </div>
+          </div>
+          <div class="contatti-sect">
+            <div class="contatti-label">
+              PUNTO DI LETTURA DI SAN LORENZO DORSINO
+            </div>
+            <?php $punto = get_field('punto_lettura'); ?>
+            <div class="footer-item">
+              <?php print $punto['orari']; ?>
+            </div>
+            <div class="footer-item telefono-item footer-flex">
+              <span></span><?php print $punto['telefono']; ?>
+            </div>
+            <div class="footer-item email-item footer-flex">
+              <span></span><?php print $punto['email']; ?>
+            </div>
+            <div class="footer-item loc-item footer-flex">
+              <span></span><?php print $punto['location']; ?>
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="contact-card">
-            <div class="mini-text mini light"><?php esc_html_e( 'Orari di apertura', 'biblioteca' ); ?></div>
-            <?php if ( function_exists( 'get_field' ) && get_field( 'contact_hours' ) ) : ?>
-              <div class="contact-line"><?php the_field( 'contact_hours' ); ?></div>
-            <?php else : ?>
-              <div class="contact-line mini-text mini light"><?php esc_html_e( 'Aggiorna questo contenuto dalla pagina utilizzando i campi personalizzati.', 'biblioteca' ); ?></div>
-            <?php endif; ?>
+          <div class="page-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.755576329527!2d10.871938455541994!3d46.036025403958604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47826b03de51509f%3A0x1f52aa3e99c598fd!2sServizio%20Biblioteca%20e%20promozione%20della%20cultura!5e0!3m2!1sit!2sit!4v1687272865076!5m2!1sit!2sit" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
     </div>
-  </section>
-</main>
-
+  </header>
+</article>
+<?php endwhile; endif; ?>
 <?php get_footer(); ?>
